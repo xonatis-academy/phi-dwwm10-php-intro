@@ -189,3 +189,157 @@ function copierTableau(array $tableau): array
 $aaa = [23, 3, 2];
 $bbb = copierTableau($aaa);
 var_dump($bbb);
+
+/*
+
+### 12. Copier les premiers éléments d'un tableau dont la somme fait au moins un nombre
+
+Problème : Ecrire une fonction qui prend un tableau et un nombre entier et qui copie les premiers éléments d'un tableau dont la somme fait au moins ce nombre
+S'il n'y a pas assez d'elements, retourner un tableau vide
+
+*/
+
+// 1. On choisit le nom de la fonction (verbe) : copierTableauSomme
+// 2. On déduit le type des paramètres en entrée :  array $tab, int $seuil
+// 3. On déduit le type de la valeur de retour : array
+
+function copierTableauSomme(array $tab, int $seuil): array
+{
+    // $somme = $somme + $element : calculer la somme au fur et à fur
+    // array_push($tableau, $element) : ajouter l'element au tableau
+    // if ... : check pour verifier si la somme dépasse le seuil
+
+
+    // ------ CHOIX 2 ---------------
+    // 1. le nouveau tableau est vide
+    // 2. la somme est à zero
+    // 3. Pour chaque element du tableau
+    //      on verifie si la somme est plus grand que le seuil
+    //      si c'est le cas, alors on retourne le nouveau tableau
+    //      si ce n'est pas le cas, on met l'element dans le nouveau tableau et on ajoute l'element a la somme
+    // 4. a la fin, on retourne un tableau vide
+
+
+    // ------ CHOIX 3 ---------------
+    // 1. le nouveau tableau est vide
+    // 2. la somme est à zero
+    // 3. Pour chaque element du tableau
+    //      on met l'element dans le nouveau tableau et on ajoute l'element a la somme
+    //      on verifie si la somme est plus grand que le seuil
+    //      si c'est le cas, alors on retourne le nouveau tableau
+    // 4. a la fin, on retourne un tableau vide
+
+
+    // 1. le nouveau tableau est vide
+    $nouveau = [];
+    // 2. la somme est à zero
+    $somme = 0;
+    // 3. Pour chaque element du tableau
+    for ($a = 0; $a < count($tab); ++$a)
+    {
+        $element = $tab[$a];
+    //      on met l'element dans le nouveau tableau et on ajoute l'element a la somme
+        array_push($nouveau, $element);
+        $somme = $somme + $element;
+    //      on verifie si la somme est plus grand que le seuil
+        if ($somme >= $seuil)
+        {
+    //      si c'est le cas, alors on retourne le nouveau tableau
+            return $nouveau;
+        }
+    }
+
+    // 4. a la fin, on retourne un tableau vide
+    return [];
+}
+
+
+/*
+
+## A1. Livraison gratuite ?
+
+Problème : écrire une fonction qui prend une liste de prix en entrée et un nombre 
+floattant (prix seuil). Retourner vrai si le prix total dépasse le prix seuil et 
+faux sinon.
+
+*/
+
+// 1. On choisit le nom de la fonction (verbe) : verifierLivraison
+// 2. On déduit le type des paramètres en entrée :  array $prices, float $seuil
+// 3. On déduit le type de la valeur de retour : bool
+
+function verifierLivraisonSaid(array $prices, float $seuil): bool
+{
+    // Parcourir le tableau
+    // Calculer les cellule accumulées.
+    // Si le total des cellules accumulé dépasse la valeur du seuil on retourne vrai.
+    // à la fin return faux.
+
+    $somme = 0;
+    for ($i = 0; $i < count($prices); ++$i) 
+    {
+        $element = $prices[$i];
+        $somme = $somme + $element;
+
+        if ($somme > $seuil)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+function verifierLivraisonAlicia(array $prices, float $seuil): bool
+{
+    // on initialise la somme a 0
+    // pour chaque element du tableau
+    // on calcule la somme par accumulation
+    // si la somme est > a $seuil on retourne true
+    // sinon on retrourne false
+
+    $somme = 0;
+    for ($i = 0; $i < count($prices); ++$i)
+    {
+        $element = $prices[$i];
+        $somme = $somme + $element;
+    }
+    if ($somme > $seuil) 
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+/*
+
+## A2. Reduction
+
+Problème : écrire une fonction qui prend une liste de prix (floattant) et qui retourne la liste des prix diminué de 20%.
+**METTRE** un nouveau tableau a vide
+**POUR CHAQUE** element dans $prices
+    **EMPILER** l'element fois 0.80 dans nouveau
+
+**RETOURNER** nouveau
+
+*/
+
+function reduirePrix(array $prices): array
+{
+    // **METTRE** un nouveau tableau a vide
+    $nouveau = [];
+
+    // **POUR CHAQUE** element dans $prices
+    for ($i = 0; $i < count($prices); ++$i)
+    {
+        $element = $prices[$i];
+
+        // **EMPILER** l'element fois 0.80 dans nouveau
+        array_push($nouveau, $element * 0.8);
+    }
+
+    // **RETOURNER** nouveau
+    return $nouveau;
+}
