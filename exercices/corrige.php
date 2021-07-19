@@ -372,10 +372,14 @@ $listeDeProduits =
 
 function calculerPrixTotalParProduit(array $liste): array
 {
+    // **POUR CHAQUE** element dans $liste
     for ($i = 0; $i < count($liste); ++ $i)
     {
         $element = $liste[$i];
+
+        // **METTRE** prix_total de l'element, c'est le prix de l'element fois la quatite de l'element
         $element['prix_total'] = $element['prix'] * $element['quantite'];
     }
+    // **RETOURNER** la liste
     return $liste;
 }
