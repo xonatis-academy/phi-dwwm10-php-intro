@@ -343,3 +343,39 @@ function reduirePrix(array $prices): array
     // **RETOURNER** nouveau
     return $nouveau;
 }
+
+/*
+
+## 14. Mapper des données
+
+Problème : Ecrire une fonction qui prend un tableau de tableaux associatifs (produits) 
+et qui renvoie un tableau de tableaux associatifs (produits) dont chaque produit 
+contient le prix total (prix unitaire multiplié par la quantité)
+
+*/
+
+$listeDeProduits = 
+[
+    [
+        'prix' => 9.8,
+        'quantite' => 2
+    ],
+    [
+        'prix' => 3.2,
+        'quantite' => 3
+    ],
+    [
+        'prix' => 10.9,
+        'quantite' => 1
+    ]
+];
+
+function calculerPrixTotalParProduit(array $liste): array
+{
+    for ($i = 0; $i < count($liste); ++ $i)
+    {
+        $element = $liste[$i];
+        $element['prix_total'] = $element['prix'] * $element['quantite'];
+    }
+    return $liste;
+}
