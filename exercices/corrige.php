@@ -87,10 +87,6 @@ function trouverMaximum(array $tab): float
     return $doigt;
 }
 
-$top = [34.5, 4.3, 45.5];
-$res = trouverMaximum($top);
-var_dump($res);
-
 /*
 
 ### 9. Trouver l'élément minimum d'un tableau
@@ -156,3 +152,40 @@ function trouverPremier(array $tab, float $reference): ?float
     return null;
 }
 
+
+/*
+
+### 11. Copier un tableau
+
+Problème : Ecrire une fonction qui prend un tableau et qui le copie dans un autre tableau autre, vous devez utiliser la fonction array_push
+ca retourne un tableau
+
+*/
+
+// 1. On choisit le nom de la fonction (verbe) : copierTableau
+// 2. On déduit le type des paramètres en entrée :  array $tableau
+// 3. On déduit le type de la valeur de retour : array
+
+function copierTableau(array $tableau): array
+{
+    // **METTRE** un nouveau tableau à vide
+    $nouveau = [];
+    // ALTERNATIVE : $nouveau = array();
+
+    // **POUR CHAQUE** element DANS $tableau
+    for ($a = 0; $a < count($tableau); ++$a)
+    {
+        $element = $tableau[$a];
+
+        // /EMPILER/ element à la fin de nouveau tableau
+        array_push($nouveau, $element);
+        // ALTERNATIVE : $nouveau[] = $element;
+    }
+    
+    // **RETOURNER** le nouveau tableau
+    return $nouveau;
+}
+
+$aaa = [23, 3, 2];
+$bbb = copierTableau($aaa);
+var_dump($bbb);
