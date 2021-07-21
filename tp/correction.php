@@ -66,6 +66,8 @@ function verifierSansContact2(float $prix): bool
 // 2. On déduit le type des paramètres en entrée : array $tab
 // 3. On déduit le type de la valeur de retour : int
 
+// Traquer les utilisateurs qui n'auraient pas du acheter de l'alcool
+
 function compterMajeurs(array $tab): int
 {
     $compte = 0;
@@ -87,6 +89,8 @@ function compterMajeurs(array $tab): int
 // 2. On déduit le type des paramètres en entrée : array $tab, float $cherche
 // 3. On déduit le type de la valeur de retour : ?int
 
+// Trouver le client qui rapporte 50K de CA
+
 function trouverPosition(array $tab, float $cherche): ?int
 {
     for ($i = 0; $i < count($tab); ++$i)
@@ -106,6 +110,8 @@ function trouverPosition(array $tab, float $cherche): ?int
 // 1. On choisit le nom de la fonction (verbe) : calculerMoyenne
 // 2. On déduit le type des paramètres en entrée : array $tab
 // 3. On déduit le type de la valeur de retour : float
+
+// Calculer la moyenne de Said pour voir si on lui donne le passage a la certif
 
 function calculerMoyenne(array $tab): float
 {
@@ -134,6 +140,8 @@ function calculerMoyenne(array $tab): float
 // 1. On choisit le nom de la fonction (verbe) : echangeDerniers
 // 2. On déduit le type des paramètres en entrée : array
 // 3. On déduit le type de la valeur de retour : array
+
+// A chaque fois qu'on swappe quelque chose
 
 function echangeDerniers(array $tab): array
 {
@@ -173,6 +181,8 @@ La fonction doit retourner : 5.2
 // Algo :
 // 1. On cherche le maximum et on le met dans une varialble $premierMaximum
 // 2. On cherche le maximum différent du $premierMaximum, ca doit etre le deuxieme maximum
+
+// Qui a la 2eme meilleure moyenne apres Said
 
 function chercherDeuxiemeMaximum(array $tab): ?float
 {
@@ -216,6 +226,8 @@ retourne 1 tableau de nombres entier sans les doublons
 // 2. On déduit le type des paramètres en entrée : array $tab
 // 3. On déduit le type de la valeur de retour : array
 
+// enlever les topics redondant d'un forum
+
 function verifierPresence(array $tab, float $recherche): bool
 {
     for ($i = 0; $i < count($tab); ++$i)
@@ -257,6 +269,8 @@ retourne un nombre entier qui correspond à l'écart le plus faible
 // 1. On choisit le nom de la fonction (verbe) : trouverEcartPlusFaible
 // 2. On déduit le type des paramètres en entrée : array $tab
 // 3. On déduit le type de la valeur de retour : int
+
+// Trouver les chemins directs les plus courts
 
 function trouverEcartPlusFaible(array $tab): int
 {
@@ -308,6 +322,8 @@ Pour des raisons de performances, cela doit se faire avec 1 boucle foreach maxim
 // 1. On choisit le nom de la fonction (verbe) : trier
 // 2. On déduit le type des paramètres en entrée : array $tab
 // 3. On déduit le type de la valeur de retour : array
+
+// Classer les produits d'un panier en categorie pour les analyser
 
 function trier(array $tab): array
 {
